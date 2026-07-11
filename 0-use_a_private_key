@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Connect to server with RSA key pair
+
+ssh  -i ~/.ssh/school ubuntu@3.95.213.69
+ssh  -i ~/.ssh/school ubuntu@3.95.213.69
