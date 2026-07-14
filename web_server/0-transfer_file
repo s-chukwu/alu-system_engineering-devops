@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Transfer a file from client to server
+
+if [ "$#" -lt 4 ]; then
+  echo "Usage: $0 PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+  exit 1
+fi
+
+PATH_TO_FILE="$1"
+IP="$2"
+USERNAME="$3"
+PATH_TO_SSH_KEY="$4"
+
+SCP_OPTIONS=(-o "StrictHostKeyChecking=no")
+
+if scp "${SCP_OPTIONS[@]}" -i "$PATH_TO_SSH_KEY" "$PATH_TO_FILE" "$USERNAME@$IP:~/" 
+then
+  echo "File transfer completed successfully."
+else
+  echo "File transfer failed."
+fi
