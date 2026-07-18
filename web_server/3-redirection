@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Configures nginx to redirct to another page
+
+apt-get update -y
+apt-get install -y nginx
+
+echo "Holberton School" > /var/www/html/index.html
+
+# Insert the redirect rule right after the server_name line in the default site config
+sed -i '/server_name _;/a\\tlocation /redirect_me { return 301 https://www.w3schools.com/python; }' /etc/nginx/sites-available/default
+
+service nginx start
+service nginx restart
+
+exit 0
