@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Displays subdomain DNS record info using dig
+# Display subdomain DNS record info using dig
 
 domain="$1"
 subdomain="$2"
