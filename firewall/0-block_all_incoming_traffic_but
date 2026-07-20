@@ -1,0 +1,21 @@
+sudo apt-get update -y
+sudo apt-get install -y ufw
+
+# Allow SSH first, before enabling ufw
+sudo ufw allow 22/tcp
+
+# Allow HTTP and HTTPS
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+
+# Set default policy to deny all incoming traffic
+sudo ufw default deny incoming
+
+# Allow all outgoing traffic
+sudo ufw default allow outgoing
+
+# Enable ufw
+sudo ufw enable
+
+# Confirm the rules
+sudo ufw status verbose
