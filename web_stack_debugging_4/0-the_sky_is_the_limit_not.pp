@@ -1,5 +1,5 @@
-# Increase Nginx's open-file limit
+# Increase Nginx's open-file limit and restart it.
 exec { 'fix--for-nginx':
-  path    => '/usr/bin:/usr/sbin:/bin:/sbin',
-  command => 'sed -i "/ULIMIT=/c\ULIMIT='\''-n 4096'\''" /etc/default/nginx; service nginx restart',
+  command => 'sed -i "s/15/4096/" /etc/default/nginx && service nginx restart',
+  path    => ['/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin'],
 }
